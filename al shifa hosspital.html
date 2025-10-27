@@ -1,1 +1,548 @@
 
+<!doctype html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width,initial-scale=1" />
+    <title>Al Shifa Hospital — Premium Healthcare</title>
+
+    <!-- Bootstrap 5 -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+
+    <!-- AOS -->
+    <link href="https://unpkg.com/aos@2.3.4/dist/aos.css" rel="stylesheet">
+
+    <!-- Font Awesome -->
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet">
+
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700;800&display=swap" rel="stylesheet">
+
+    <style>
+        :root {
+            --brand: #2f9bb3;
+            /* primary medical blue */
+            --brand-2: #e6f6fa;
+            /* light blue background */
+            --muted: #6b7280;
+            --card-bg: #ffffff;
+            --accent: #00bfa6;
+        }
+
+        html,
+        body {
+            height: 100%;
+            font-family: "Inter", system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial;
+            color: #0f1724;
+            background: #fff;
+        }
+
+        /* ===== NAVBAR ===== */
+        .navbar {
+            background: linear-gradient(90deg, var(--brand) 0%, #3aa7c1 100%);
+            box-shadow: 0 8px 30px rgba(23, 43, 77, 0.08);
+        }
+
+        .navbar .navbar-brand {
+            color: #fff;
+            font-weight: 800;
+            letter-spacing: .2px;
+        }
+
+        .navbar .nav-link {
+            color: rgba(255, 255, 255, 0.95);
+            font-weight: 600;
+        }
+
+        .navbar .btn-cta {
+            background: #fff;
+            color: var(--brand);
+            font-weight: 700;
+            border-radius: 999px;
+            padding: 8px 18px;
+            box-shadow: 0 6px 18px rgba(47, 155, 179, 0.18);
+        }
+
+        /* ===== HERO ===== */
+        .hero {
+            background: linear-gradient(180deg, var(--brand-2) 0%, #fff 60%);
+            padding: 56px 0 28px;
+            position: relative;
+            overflow: visible;
+        }
+
+        .hero .card-stats {
+            margin-top: 22px;
+            background: #fff;
+            border-radius: 12px;
+            box-shadow: 0 12px 40px rgba(15, 23, 36, 0.06);
+            padding: 18px;
+        }
+
+        .hero .headline {
+            font-size: clamp(1.6rem, 2.9vw, 2.6rem);
+            line-height: 1.05;
+            font-weight: 800;
+            color: #062029;
+        }
+
+        .hero .sub {
+            color: var(--muted);
+            margin-top: 10px;
+            max-width: 700px;
+        }
+
+        .hero .doctor-img {
+            max-width: 460px;
+            width: 100%;
+            border-radius: 12px;
+            box-shadow: 0 12px 40px rgba(10, 30, 40, 0.08);
+            transform: translateY(6px);
+        }
+
+        /* Search appointment */
+        .search-appointment {
+            margin-top: 18px;
+            background: linear-gradient(90deg, #fff 0%, #fbffff 100%);
+            border-radius: 12px;
+            padding: 12px;
+            box-shadow: 0 10px 30px rgba(8, 16, 20, 0.04);
+            border: 1px solid rgba(15, 23, 36, 0.04);
+        }
+
+        .search-appointment .form-control,
+        .search-appointment .btn {
+            min-height: 48px;
+            border-radius: 8px;
+            border: 1px solid rgba(15, 23, 36, 0.06);
+        }
+
+        .search-appointment .btn-search {
+            background: linear-gradient(90deg, var(--brand), #198fb0);
+            color: #fff;
+            font-weight: 700;
+            border: none;
+        }
+
+        /* Stats row below hero */
+        .kpi {
+            display: flex;
+            gap: 16px;
+            justify-content: space-between;
+            flex-wrap: wrap;
+            margin-top: 18px;
+        }
+
+        .kpi .kpi-item {
+            flex: 1 1 150px;
+            background: #fff;
+            border-radius: 10px;
+            padding: 14px;
+            text-align: center;
+            box-shadow: 0 6px 20px rgba(20, 40, 60, 0.04);
+        }
+
+        .kpi .kpi-item h3 {
+            color: var(--brand);
+            font-weight: 800;
+            margin-bottom: 6px;
+        }
+
+        /* Departments area */
+        .departments {
+            padding: 36px 0;
+            background: #fff;
+        }
+
+        .dept-grid {
+            display: flex;
+            gap: 18px;
+            flex-wrap: wrap;
+            justify-content: center;
+        }
+
+        .dept-card {
+            width: 110px;
+            height: 110px;
+            background: linear-gradient(180deg, #fff, #fbfdff);
+            border-radius: 12px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-direction: column;
+            gap: 8px;
+            border: 1px solid rgba(10, 30, 40, 0.03);
+            transition: transform .28s ease, box-shadow .28s ease;
+        }
+
+        .dept-card:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 14px 40px rgba(8, 20, 30, 0.06);
+        }
+
+        .dept-card i {
+            font-size: 22px;
+            color: var(--brand);
+        }
+
+        .dept-card small {
+            color: var(--muted);
+            font-weight: 600;
+        }
+
+        /* Services */
+        .services {
+            background: linear-gradient(180deg, #f0fbfd, #fff);
+            padding: 48px 0;
+        }
+
+        .service-card {
+            background: #fff;
+            border-radius: 12px;
+            padding: 18px;
+            box-shadow: 0 10px 30px rgba(10, 30, 40, 0.04);
+            transition: transform .3s ease;
+        }
+
+        .service-card:hover {
+            transform: translateY(-8px);
+        }
+
+        /* Footer */
+        footer {
+            background: #071423;
+            color: #cfeff6;
+            padding: 40px 0;
+        }
+
+        /* Responsive tweaks */
+        @media (max-width:991px) {
+            .hero .doctor-img {
+                max-width: 360px;
+                margin: 0 auto;
+                display: block;
+            }
+        }
+
+        @media (max-width:575px) {
+            .headline {
+                font-size: 1.6rem;
+            }
+
+            .kpi .kpi-item {
+                padding: 12px;
+            }
+
+            .dept-card {
+                width: 92px;
+                height: 92px;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <!-- NAV -->
+    <nav class="navbar navbar-expand-lg navbar-dark">
+        <div class="container">
+            <a class="navbar-brand d-flex align-items-center" href="#">
+                <div
+                    style="width:40px;height:40px;border-radius:8px;background:rgba(255,255,255,0.12);display:grid;place-items:center;margin-right:10px;">
+                    <i class="fas fa-hospital-symbol" style="color:#fff;font-size:18px"></i>
+                </div>
+                <div>
+                    <div style="line-height:1;color:#fff;font-weight:800">Al Shifa Hospital</div>
+                    <small style="color:rgba(255,255,255,0.85);font-weight:600">Super Specialist Care</small>
+                </div>
+            </a>
+
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navMain">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+
+            <div class="collapse navbar-collapse" id="navMain">
+                <ul class="navbar-nav ms-auto align-items-lg-center">
+                    <li class="nav-item"><a class="nav-link" href="#home">Home</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#departments">Departments</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#services">Services</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#contact">Contact</a></li>
+                </ul>
+                <div class="ms-3">
+                    <button class="btn btn-cta">Book Appointment</button>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <!-- HERO -->
+    <header id="home" class="hero">
+        <div class="container">
+            <div class="row align-items-center gy-4">
+                <div class="col-lg-6" data-aos="fade-up">
+                    <div class="headline">Premium Treatments for a Healthy Lifestyle</div>
+                    <p class="sub">Seamlessly advance scalable healthcare with future-ready growth strategies. Expert
+                        clinicians, advanced diagnostics, and patient-first care to help you feel better — faster.</p>
+
+                    <!-- Search / appointment inputs -->
+                    <div class="search-appointment mt-4" data-aos="fade-up" data-aos-delay="120">
+                        <form class="row g-2 align-items-center">
+                            <div class="col-12 col-md-6 col-lg-3">
+                                <select class="form-select" aria-label="Select Department">
+                                    <option selected>Select Department</option>
+                                    <option>Cardiology</option>
+                                    <option>Orthopedics</option>
+                                    <option>Radiology</option>
+                                </select>
+                            </div>
+                            <div class="col-12 col-md-6 col-lg-3">
+                                <select class="form-select">
+                                    <option selected>Select Doctor</option>
+                                    <option>Dr. Ahmed</option>
+                                    <option>Dr. Ali</option>
+                                </select>
+                            </div>
+                            <div class="col-12 col-md-6 col-lg-3">
+                                <input class="form-control" type="date" />
+                            </div>
+                            <div class="col-12 col-md-6 col-lg-2">
+                                <select class="form-select">
+                                    <option selected>Select Location</option>
+                                    <option>Main Campus</option>
+                                    <option>City Clinic</option>
+                                </select>
+                            </div>
+                            <div class="col-12 col-lg-1 d-grid">
+                                <button type="submit"
+                                    class="btn btn-search btn-search btn-search btn-search btn btn-search btn-search btn-search btn-search btn-search btn-search btn-search btn-search btn-search btn-search btn btn-search btn-search btn-search btn-search btn-search btn-search btn-search btn-search btn-search btn-search btn-search"
+                                    style="background:var(--brand);color:#fff;border:none;border-radius:8px;">
+                                    <i class="fas fa-search"></i>
+                                </button>
+                            </div>
+                        </form>
+                    </div>
+
+                    <!-- KPI / stats -->
+                    <div class="kpi mt-4" data-aos="fade-up" data-aos-delay="220">
+                        <div class="kpi-item">
+                            <h3>4500+</h3>
+                            <div class="text-muted small">Happy Patients</div>
+                        </div>
+                        <div class="kpi-item">
+                            <h3>200</h3>
+                            <div class="text-muted small">Hospital Rooms</div>
+                        </div>
+                        <div class="kpi-item">
+                            <h3>500+</h3>
+                            <div class="text-muted small">Awards Won</div>
+                        </div>
+                        <div class="kpi-item">
+                            <h3>20+</h3>
+                            <div class="text-muted small">Ambulances</div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-lg-6 text-lg-end text-center" data-aos="fade-left">
+                    <img class="doctor-img"
+                        src="https://images.unsplash.com/photo-1544723795-3fb6469f5b39?auto=format&fit=crop&w=1000&q=80"
+                        alt="Doctor smiling">
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <!-- DEPARTMENTS -->
+    <section id="departments" class="departments">
+        <div class="container">
+            <div class="text-center mb-4" data-aos="fade-up">
+                <h3 style="font-weight:800">Department Category</h3>
+                <p class="text-muted">Browse by department for tailored services and expert solutions</p>
+            </div>
+
+            <div class="dept-grid" data-aos="fade-up" data-aos-delay="80">
+                <!-- Repeat icons like in reference -->
+                <div class="dept-card text-center">
+                    <i class="fas fa-heartbeat"></i>
+                    <small>Cardiology</small>
+                </div>
+                <div class="dept-card text-center">
+                    <i class="fas fa-lungs"></i>
+                    <small>Pulmonology</small>
+                </div>
+                <div class="dept-card text-center">
+                    <i class="fas fa-tooth"></i>
+                    <small>Dental</small>
+                </div>
+                <div class="dept-card text-center">
+                    <i class="fas fa-brain"></i>
+                    <small>Neurology</small>
+                </div>
+                <div class="dept-card text-center">
+                    <i class="fas fa-bone"></i>
+                    <small>Orthopedics</small>
+                </div>
+                <div class="dept-card text-center">
+                    <i class="fas fa-x-ray"></i>
+                    <small>Radiology</small>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- SERVICES -->
+    <section id="services" class="services">
+        <div class="container">
+            <div class="row align-items-center">
+                <div class="col-lg-6" data-aos="fade-right">
+                    <h3 style="font-weight:800">World-Class Healthcare Services for you and your loved ones</h3>
+                    <p class="text-muted">We deliver advanced diagnostic and clinical services with compassionate,
+                        patient-centered care.</p>
+                </div>
+
+                <div class="col-lg-6">
+                    <div class="row g-3">
+                        <div class="col-md-6" data-aos="zoom-in" data-aos-delay="50">
+                            <div class="service-card">
+                                <div class="d-flex align-items-start gap-3">
+                                    <div
+                                        style="width:46px;height:46px;border-radius:8px;background:var(--card-bg);display:grid;place-items:center;box-shadow:0 8px 18px rgba(10,30,40,0.04)">
+                                        <i class="fas fa-ambulance" style="color:var(--brand)"></i></div>
+                                    <div>
+                                        <h6 style="font-weight:700;margin-bottom:6px">Emergency Services</h6>
+                                        <p class="small text-muted mb-0">24/7 immediate medical care for critical
+                                            conditions, accidents and life-threatening situations.</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="col-md-6" data-aos="zoom-in" data-aos-delay="120">
+                            <div class="service-card">
+                                <div class="d-flex align-items-start gap-3">
+                                    <div
+                                        style="width:46px;height:46px;border-radius:8px;background:var(--card-bg);display:grid;place-items:center;box-shadow:0 8px 18px rgba(10,30,40,0.04)">
+                                        <i class="fas fa-x-ray" style="color:var(--brand)"></i></div>
+                                    <div>
+                                        <h6 style="font-weight:700;margin-bottom:6px">Radiology & Imaging</h6>
+                                        <p class="small text-muted mb-0">Advanced diagnostic imaging including X-ray, CT
+                                            scan, MRI and ultrasound.</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="col-md-6" data-aos="zoom-in" data-aos-delay="190">
+                            <div class="service-card">
+                                <div class="d-flex align-items-start gap-3">
+                                    <div
+                                        style="width:46px;height:46px;border-radius:8px;background:var(--card-bg);display:grid;place-items:center;box-shadow:0 8px 18px rgba(10,30,40,0.04)">
+                                        <i class="fas fa-vials" style="color:var(--brand)"></i></div>
+                                    <div>
+                                        <h6 style="font-weight:700;margin-bottom:6px">Laboratory Services</h6>
+                                        <p class="small text-muted mb-0">Comprehensive lab testing for accurate
+                                            diagnosis and treatment planning.</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="col-md-6" data-aos="zoom-in" data-aos-delay="260">
+                            <div class="service-card">
+                                <div class="d-flex align-items-start gap-3">
+                                    <div
+                                        style="width:46px;height:46px;border-radius:8px;background:var(--card-bg);display:grid;place-items:center;box-shadow:0 8px 18px rgba(10,30,40,0.04)">
+                                        <i class="fas fa-pills" style="color:var(--brand)"></i></div>
+                                    <div>
+                                        <h6 style="font-weight:700;margin-bottom:6px">Pharmacy</h6>
+                                        <p class="small text-muted mb-0">In-house pharmacy providing essential medicines
+                                            and patient counselling.</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                    </div> <!-- /row -->
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- DELIVERY / MAP like small section (placeholder) -->
+    <section class="container my-5">
+        <div class="row align-items-center g-4">
+            <div class="col-lg-6" data-aos="fade-right">
+                <h5 style="font-weight:800">We Are On The Map</h5>
+                <p class="text-muted">Find our clinics and ambulances near you — fast emergency response and scheduled
+                    appointments.</p>
+                <ul class="list-unstyled small text-muted">
+                    <li class="mb-2"><i class="fas fa-map-marker-alt me-2" style="color:var(--brand)"></i>Main Campus —
+                        123 Health Ave.</li>
+                    <li class="mb-2"><i class="fas fa-map-marker-alt me-2" style="color:var(--brand)"></i>City Clinic —
+                        45 Central Plaza</li>
+                </ul>
+            </div>
+            <div class="col-lg-6" data-aos="fade-left">
+                <!-- Placeholder map image -->
+                <div style="border-radius:12px;overflow:hidden;box-shadow:0 10px 30px rgba(10,30,40,0.06)">
+                    <img src="global-globalization-world-map-environmental-concservation-concept.jpg"
+                        class="img-fluid" alt="map placeholder">
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- CTA strip -->
+    <section style="background:linear-gradient(90deg,var(--brand), #1f97ad);color:#fff;padding:28px 0;margin-top:30px">
+        <div class="container d-flex flex-column flex-md-row justify-content-between align-items-center gap-3">
+            <div>
+                <h5 style="margin:0;font-weight:800">Need urgent care?</h5>
+                <div class="small">Call our emergency hotline — we are ready 24/7</div>
+            </div>
+            <div style="font-weight:800;font-size:1.1rem">Hotline: <span
+                    style="background:#fff;color:var(--brand);padding:6px 12px;border-radius:8px;margin-left:10px">+92
+                    300 1234567</span></div>
+        </div>
+    </section>
+
+    <!-- FOOTER -->
+    <footer class="mt-5">
+        <div class="container">
+            <div class="row gy-3">
+                <div class="col-md-6">
+                    <h5 style="color:#fff;font-weight:800">Al Shifa Hospital</h5>
+                    <p style="color:rgba(255,255,255,0.85)">Committed to compassionate care and clinical excellence.
+                        Location: 123 Health Ave, Lahore</p>
+                </div>
+                <div class="col-md-3">
+                    <h6 style="color:#fff;font-weight:700">Contact</h6>
+                    <p style="color:rgba(255,255,255,0.85);margin-bottom:0">Phone: +92 300 1234567</p>
+                    <p style="color:rgba(255,255,255,0.85)">Email: info@alshifahospital.com</p>
+                </div>
+                <div class="col-md-3 text-md-end">
+                    <h6 style="color:#fff;font-weight:700">Follow Us</h6>
+                    <div class="d-flex justify-content-md-end gap-3">
+                        <a href="#" style="color:#cfeff6"><i class="fab fa-facebook fa-lg"></i></a>
+                        <a href="#" style="color:#cfeff6"><i class="fab fa-instagram fa-lg"></i></a>
+                        <a href="#" style="color:#cfeff6"><i class="fab fa-twitter fa-lg"></i></a>
+                    </div>
+                </div>
+            </div>
+
+            <hr style="border-color:rgba(255,255,255,0.06);margin:22px 0">
+            <div class="text-center" style="color:rgba(255,255,255,0.72)">&copy; <span id="nowYear"></span> Al Shifa
+                Hospital — All rights reserved</div>
+        </div>
+    </footer>
+
+    <!-- SCRIPTS -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="https://unpkg.com/aos@2.3.4/dist/aos.js"></script>
+    <script>
+        AOS.init({ duration: 900, once: true, easing: 'ease-out-cubic' });
+        document.getElementById('nowYear').textContent = new Date().getFullYear();
+    </script>
+</body>
+
+</html>
